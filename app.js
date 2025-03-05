@@ -28,18 +28,27 @@ function agregarAmigo() {
     }
 }
 
-// Función para mostrar la lista de amigos en el HTML
+// Función para mostrar la lista de amigos en HTML
 function mostrarAmigos() {
+    // Obtener el elemento <ul> o <ol> donde se mostrará la lista de amigos
     const listaAmigos = document.getElementById("listaAmigos");
-    listaAmigos.innerHTML = ""; // Limpiar la lista antes de agregar los nuevos elementos
 
-    // Recorrer el arreglo de amigos y agregarlos al HTML
-    amigos.forEach(function(amigo) {
+    // Limpiar la lista existente para evitar duplicados
+    listaAmigos.innerHTML = "";
+
+    // Iterar sobre el arreglo amigos y agregar cada nombre como un <li>
+    for (let i = 0; i < amigos.length; i++) {
+        // Crear un nuevo elemento <li> para cada amigo
         const li = document.createElement("li");
-        li.textContent = amigo;
+
+        // Asignar el texto del <li> al nombre del amigo
+        li.textContent = amigos[i];
+
+        // Agregar el <li> al <ul> o <ol> de la lista de amigos
         listaAmigos.appendChild(li);
-    });
+    }
 }
+
 
 // Vincular la función agregarAmigo al botón
 document.querySelector(".button-add").addEventListener("click", agregarAmigo);
